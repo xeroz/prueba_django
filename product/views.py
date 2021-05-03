@@ -24,22 +24,6 @@ class CategoryList(APIView):
         return Response(serializer.data)
 
 
-class CartByUserList(APIView):
-
-    def post(self, request, format=None):
-        print(request.data)
-        data = request.data
-        user = User.objects.get(pk=data.user_id)
-        product = Product.objects.get(pk=data.user_id)
-        Cart.objects.create(user=user, product=product)
-        pass
-        # serializer = CategorySerializer(data=request.data)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
-        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 class ProductByCategoryList(APIView):
 
     def get(self, request, pk, format=None):
