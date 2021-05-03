@@ -15,9 +15,7 @@ def get_object(pk):
 
 
 class CategoryList(APIView):
-    """
-    List all categories, or create a new cat.
-    """
+
     def get(self, request, format=None):
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)
